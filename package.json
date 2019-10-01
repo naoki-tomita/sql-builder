@@ -17,7 +17,7 @@
   "scripts": {
     "build": "tsc",
     "pretest": "yarn build",
-    "test": "mocha",
+    "test": "mocha *.spec.js",
     "prepublish": "yarn build"
   }
 }
