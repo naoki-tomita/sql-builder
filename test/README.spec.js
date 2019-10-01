@@ -3,8 +3,9 @@ const { parse } = require("@power-doctest/markdown");
 const { readFileSync } = require("fs");
 const { join } = require("path");
 
-const content = readFileSync(join(__dirname, "../README.md"), "utf-8");
-const parsedResults = parse({ content, filePath: "./README.md" });
+const contentPath = join(__dirname, "../README.md");
+const content = readFileSync(contentPath, "utf-8");
+const parsedResults = parse({ content, filePath: contentPath });
 describe("doctest:markdown", () => {
   parsedResults.forEach(parsedCode => {
     const { location } = parsedCode;
