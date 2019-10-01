@@ -88,11 +88,20 @@ function wrap(parameter: number | string) {
   return typeof parameter === "number" ? `${parameter}` : `"${parameter}"`;
 }
 
+function betweenAndFactory<T>(prefix: string) {
+  return function(columnName: number | string) {
+    const sql = `${prefix} AND ${columnName}`;
+    return {
+      and: andFactory<T>(sql)
+    };
+  };
+}
+
 function betweenFactory<T>(prefix: string) {
   return function(parameter: number | string) {
     const sql = `${prefix} BETWEEN ${wrap(parameter)}`;
     return {
-      and: andFactory<T>(sql)
+      and: betweenAndFactory<T>(sql)
     };
   };
 }
@@ -180,7 +189,7 @@ function nextable<T>(sql: string) {
     primaryKey: primaryKeyFactory<T>(sql),
     notNull: notNullFactory<T>(sql),
     unique: uniqueFactory<T>(sql),
-    next: constructorFactory(`${sql},`),
+    column: constructorFactory(`${sql},`),
     build: buildFactory(`${sql})`),
   };
 }
@@ -243,6 +252,6 @@ function ifNotExistFactory<T>(tableName: string) {
 export function createTable<T>(tableName: string) {
   return {
     ifNotExist: ifNotExistFactory<T>(tableName),
-    constructor: constructorFactory<T>(`CREATE TABLE ${tableName}`)
+    column: constructorFactory<T>(`CREATE TABLE ${tableName} (`)
   };
 }

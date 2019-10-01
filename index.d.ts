@@ -35,7 +35,9 @@ export declare function select(...params: string[]): {
                 or: (columnName: keyof T) => any;
             };
             between: (parameter: string | number) => {
-                and: (columnName: keyof T) => any;
+                and: (columnName: string | number) => {
+                    and: (columnName: keyof T) => any;
+                };
             };
             isNull: () => {
                 build: () => string;
@@ -95,7 +97,9 @@ export declare function select(...params: string[]): {
                     or: (columnName: keyof T) => any;
                 };
                 between: (parameter: string | number) => {
-                    and: (columnName: keyof T) => any;
+                    and: (columnName: string | number) => {
+                        and: (columnName: keyof T) => any;
+                    };
                 };
                 isNull: () => {
                     build: () => string;
@@ -136,13 +140,13 @@ export declare function createTable<T>(tableName: string): {
                 primaryKey: () => any;
                 notNull: () => any;
                 unique: () => any;
-                next: (key: string) => {
+                column: (key: string) => {
                     type: (type: DataType) => {
                         autoIncrement: () => any;
                         primaryKey: () => any;
                         notNull: () => any;
                         unique: () => any;
-                        next: any;
+                        column: any;
                         build: () => string;
                     };
                 };
@@ -150,19 +154,19 @@ export declare function createTable<T>(tableName: string): {
             };
         };
     };
-    constructor: (key: string) => {
+    column: (key: string) => {
         type: (type: DataType) => {
             autoIncrement: () => any;
             primaryKey: () => any;
             notNull: () => any;
             unique: () => any;
-            next: (key: string) => {
+            column: (key: string) => {
                 type: (type: DataType) => {
                     autoIncrement: () => any;
                     primaryKey: () => any;
                     notNull: () => any;
                     unique: () => any;
-                    next: any;
+                    column: any;
                     build: () => string;
                 };
             };

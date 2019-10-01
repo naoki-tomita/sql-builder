@@ -86,11 +86,19 @@ function inFactory(prefix) {
 function wrap(parameter) {
     return typeof parameter === "number" ? "" + parameter : "\"" + parameter + "\"";
 }
+function betweenAndFactory(prefix) {
+    return function (columnName) {
+        var sql = prefix + " AND " + columnName;
+        return {
+            and: andFactory(sql)
+        };
+    };
+}
 function betweenFactory(prefix) {
     return function (parameter) {
         var sql = prefix + " BETWEEN " + wrap(parameter);
         return {
-            and: andFactory(sql)
+            and: betweenAndFactory(sql)
         };
     };
 }
@@ -178,7 +186,7 @@ function nextable(sql) {
         primaryKey: primaryKeyFactory(sql),
         notNull: notNullFactory(sql),
         unique: uniqueFactory(sql),
-        next: constructorFactory(sql + ","),
+        column: constructorFactory(sql + ","),
         build: buildFactory(sql + ")"),
     };
 }
@@ -230,7 +238,7 @@ function ifNotExistFactory(tableName) {
 function createTable(tableName) {
     return {
         ifNotExist: ifNotExistFactory(tableName),
-        constructor: constructorFactory("CREATE TABLE " + tableName)
+        column: constructorFactory("CREATE TABLE " + tableName + " (")
     };
 }
 exports.createTable = createTable;
