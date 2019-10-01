@@ -11,7 +11,7 @@ describe("doctest:markdown", () => {
     const { location } = parsedCode;
     it(`README.md:${location.start.line}-${location.end.line}`, async () => {
       try {
-        await test({ ...parsedCode, code: `const { select, createTable, insertInto } = require("./index"); ${parsedCode.code}` });
+        await test({ ...parsedCode, code: `const { select, createTable, insertInto } = require("${join(__dirname, "../index")}"); ${parsedCode.code}` });
       } catch(e) {
         console.error(
           `StrictEvalError: strict eval is failed at strictEval (README.md:${location.start.line}:${location.start.column})`

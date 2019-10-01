@@ -16,6 +16,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "mocha"
+    "pretest": "yarn build",
+    "test": "mocha",
+    "prepublish": "yarn build"
   }
 }
