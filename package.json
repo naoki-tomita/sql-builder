@@ -16,6 +16,8 @@
     "typescript": "^3.6.3"
   },
   "scripts": {
+    "build": "tsc",
+    "pretest": "yarn build",
     "test": "jest",
     "prepublish": "yarn build"
   },
