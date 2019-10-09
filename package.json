@@ -10,14 +10,17 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.8",
     "comment-to-assert": "^5.0.1",
-    "mocha": "^6.2.1",
+    "jest": "^24.9.0",
     "power-doctest": "^5.1.3",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
   },
   "scripts": {
-    "build": "tsc",
-    "pretest": "yarn build",
-    "test": "mocha *.spec.js",
+    "test": "jest",
     "prepublish": "yarn build"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
   }
 }
