@@ -189,7 +189,7 @@ function nextable<T>(sql: string) {
     primaryKey: primaryKeyFactory<T>(sql),
     notNull: notNullFactory<T>(sql),
     unique: uniqueFactory<T>(sql),
-    column: constructorFactory(`${sql},`),
+    column: constructorFactory<T>(`${sql},`),
     build: buildFactory(`${sql})`),
   };
 }
@@ -231,7 +231,7 @@ function typeFactory<T>(prefix: string) {
 }
 
 function constructorFactory<T>(prefix: string) {
-  return function(key: string) {
+  return function(key: keyof T) {
     const sql = `${prefix} ${key}`;
     return {
       type: typeFactory<T>(sql)

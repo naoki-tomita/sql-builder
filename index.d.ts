@@ -134,42 +134,24 @@ export declare function insertInto<T>(tableName: string): {
 declare type DataType = "TEXT" | "INTEGER" | "BLOB";
 export declare function createTable<T>(tableName: string): {
     ifNotExist: () => {
-        constructor: (key: string) => {
+        constructor: (key: keyof T) => {
             type: (type: DataType) => {
                 autoIncrement: () => any;
                 primaryKey: () => any;
                 notNull: () => any;
                 unique: () => any;
-                column: (key: string) => {
-                    type: (type: DataType) => {
-                        autoIncrement: () => any;
-                        primaryKey: () => any;
-                        notNull: () => any;
-                        unique: () => any;
-                        column: any;
-                        build: () => string;
-                    };
-                };
+                column: any;
                 build: () => string;
             };
         };
     };
-    column: (key: string) => {
+    column: (key: keyof T) => {
         type: (type: DataType) => {
             autoIncrement: () => any;
             primaryKey: () => any;
             notNull: () => any;
             unique: () => any;
-            column: (key: string) => {
-                type: (type: DataType) => {
-                    autoIncrement: () => any;
-                    primaryKey: () => any;
-                    notNull: () => any;
-                    unique: () => any;
-                    column: any;
-                    build: () => string;
-                };
-            };
+            column: any;
             build: () => string;
         };
     };
