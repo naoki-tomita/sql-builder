@@ -131,7 +131,7 @@ export declare function insertInto<T>(tableName: string): {
         };
     };
 };
-declare type DataType = "TEXT" | "INTEGER";
+declare type DataType = "TEXT" | "INTEGER" | "BLOB";
 export declare function createTable<T>(tableName: string): {
     ifNotExist: () => {
         constructor: (key: string) => {

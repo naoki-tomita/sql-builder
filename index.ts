@@ -222,7 +222,7 @@ function notNullFactory<T>(prefix: string) {
   };
 }
 
-type DataType = "TEXT" | "INTEGER";
+type DataType = "TEXT" | "INTEGER" | "BLOB";
 function typeFactory<T>(prefix: string) {
   return function(type: DataType) {
     const sql = `${prefix} ${type}`;
