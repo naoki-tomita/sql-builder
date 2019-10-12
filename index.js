@@ -198,7 +198,7 @@ function uniqueFactory(prefix) {
 }
 function autoIncrementFactory(prefix) {
     return function () {
-        var sql = prefix + " AUTO INCREMENT";
+        var sql = prefix + " AUTOINCREMENT";
         return nextable(sql);
     };
 }

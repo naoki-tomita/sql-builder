@@ -203,7 +203,7 @@ function uniqueFactory<T>(prefix: string) {
 
 function autoIncrementFactory<T>(prefix: string) {
   return function() {
-    const sql = `${prefix} AUTO INCREMENT`;
+    const sql = `${prefix} AUTOINCREMENT`;
     return nextable<T>(sql);
   };
 }
