@@ -134,7 +134,7 @@ export declare function insertInto<T>(tableName: string): {
 declare type DataType = "TEXT" | "INTEGER" | "BLOB";
 export declare function createTable<T>(tableName: string): {
     ifNotExist: () => {
-        constructor: (key: keyof T) => {
+        column: (key: keyof T) => {
             type: (type: DataType) => {
                 autoIncrement: () => any;
                 primaryKey: () => any;

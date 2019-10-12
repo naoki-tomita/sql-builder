@@ -231,7 +231,7 @@ function constructorFactory(prefix) {
 function ifNotExistFactory(tableName) {
     return function () {
         return {
-            constructor: constructorFactory("CREATE TABLE IF NOT EXISTS " + tableName + " (")
+            column: constructorFactory("CREATE TABLE IF NOT EXISTS " + tableName + " (")
         };
     };
 }

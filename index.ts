@@ -242,7 +242,7 @@ function constructorFactory<T>(prefix: string) {
 function ifNotExistFactory<T>(tableName: string) {
   return function() {
     return {
-      constructor: constructorFactory<T>(
+      column: constructorFactory<T>(
         `CREATE TABLE IF NOT EXISTS ${tableName} (`
       )
     };
