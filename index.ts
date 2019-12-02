@@ -185,7 +185,6 @@ export function insertInto<T>(tableName: string) {
 
 function nextable<T>(sql: string) {
   return {
-    autoIncrementForPostgres: serialFactory<T>(sql),
     autoIncrement: autoIncrementFactory<T>(sql),
     primaryKey: primaryKeyFactory<T>(sql),
     notNull: notNullFactory<T>(sql),
@@ -242,6 +241,7 @@ function constructorFactory<T>(prefix: string) {
   return function(key: keyof T) {
     const sql = `${prefix} ${key}`;
     return {
+      serialForPostgres: serialFactory<T>(sql),
       type: typeFactory<T>(sql)
     };
   };

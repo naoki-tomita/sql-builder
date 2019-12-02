@@ -135,8 +135,15 @@ declare type DataType = "TEXT" | "INTEGER" | "BLOB";
 export declare function createTable<T>(tableName: string): {
     ifNotExist: () => {
         column: (key: keyof T) => {
+            serialForPostgres: () => {
+                autoIncrement: () => any;
+                primaryKey: () => any;
+                notNull: () => any;
+                unique: () => any;
+                column: any;
+                build: () => string;
+            };
             type: (type: DataType) => {
-                autoIncrementForPostgres: () => any;
                 autoIncrement: () => any;
                 primaryKey: () => any;
                 notNull: () => any;
@@ -147,8 +154,15 @@ export declare function createTable<T>(tableName: string): {
         };
     };
     column: (key: keyof T) => {
+        serialForPostgres: () => {
+            autoIncrement: () => any;
+            primaryKey: () => any;
+            notNull: () => any;
+            unique: () => any;
+            column: any;
+            build: () => string;
+        };
         type: (type: DataType) => {
-            autoIncrementForPostgres: () => any;
             autoIncrement: () => any;
             primaryKey: () => any;
             notNull: () => any;
