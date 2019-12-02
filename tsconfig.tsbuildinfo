@@ -126,8 +126,8 @@
         "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
       },
       "./index.ts": {
-        "version": "90536845923de33339210c1512c710506b02e9d028eca97c971f4f01ff7618d6",
-        "signature": "382ef19832b4c2e634d366c084df52a7ef4cc6dfe34bcaa26f50afb560023ac9"
+        "version": "0d0d45ae2331b42e9acde3e75afbb621106ab25861fbd7b377171f58777c169a",
+        "signature": "d9ead7fdbc244a24f92f2befca3f62bad1b96de8b756db0c65d0c21003e8eac0"
       },
       "./node_modules/@babel/types/lib/index.d.ts": {
         "version": "9831162ce5f45c26f22caf9436a7e0dd0295001a7ec0e628405dd41e870148f5",
@@ -1384,7 +1384,6 @@
       "./node_modules/typescript/lib/lib.es2018.regexp.d.ts",
       "./node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "./node_modules/typescript/lib/lib.esnext.bigint.d.ts",
-      "./index.ts",
       "./node_modules/@babel/types/lib/index.d.ts",
       "./node_modules/@types/babel__generator/index.d.ts",
       "./node_modules/@types/babel__traverse/index.d.ts",
@@ -1445,7 +1444,8 @@
       "./node_modules/@types/structured-source/index.d.ts",
       "./node_modules/@types/unist/index.d.ts",
       "./node_modules/@types/yargs-parser/index.d.ts",
-      "./node_modules/@types/yargs/index.d.ts"
+      "./node_modules/@types/yargs/index.d.ts",
+      "./index.ts"
     ]
   },
   "version": "3.6.3"

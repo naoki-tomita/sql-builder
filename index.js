@@ -182,6 +182,7 @@ function insertInto(tableName) {
 exports.insertInto = insertInto;
 function nextable(sql) {
     return {
+        autoIncrementForPostgres: serialFactory(sql),
         autoIncrement: autoIncrementFactory(sql),
         primaryKey: primaryKeyFactory(sql),
         notNull: notNullFactory(sql),
@@ -193,6 +194,12 @@ function nextable(sql) {
 function uniqueFactory(prefix) {
     return function () {
         var sql = prefix + " UNIQUE";
+        return nextable(sql);
+    };
+}
+function serialFactory(prefix) {
+    return function () {
+        var sql = prefix + " SERIAL";
         return nextable(sql);
     };
 }

@@ -136,6 +136,7 @@ export declare function createTable<T>(tableName: string): {
     ifNotExist: () => {
         column: (key: keyof T) => {
             type: (type: DataType) => {
+                autoIncrementForPostgres: () => any;
                 autoIncrement: () => any;
                 primaryKey: () => any;
                 notNull: () => any;
@@ -147,6 +148,7 @@ export declare function createTable<T>(tableName: string): {
     };
     column: (key: keyof T) => {
         type: (type: DataType) => {
+            autoIncrementForPostgres: () => any;
             autoIncrement: () => any;
             primaryKey: () => any;
             notNull: () => any;
