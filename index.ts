@@ -85,7 +85,7 @@ function inFactory<T>(prefix: string) {
 }
 
 function wrap(parameter: number | string) {
-  return typeof parameter === "number" ? `${parameter}` : `"${parameter}"`;
+  return typeof parameter === "number" ? `${parameter}` : `'${parameter}'`;
 }
 
 function betweenAndFactory<T>(prefix: string) {

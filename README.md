@@ -17,7 +17,7 @@ select("*").from("foo").build();
 
 ```js
 select("*").from("foo").where("foo").like("bar").build();
-// => `SELECT * FROM foo WHERE foo LIKE "bar";`
+// => `SELECT * FROM foo WHERE foo LIKE 'bar';`
 ```
 
 ```js
@@ -25,7 +25,7 @@ select("*").from("table_name")
   .where("column1").between(5).and(8)
   .and("column2").in("foo", 2, "bar")
   .build();
-  // => `SELECT * FROM table_name WHERE column1 BETWEEN 5 AND 8 AND column2 IN ("foo", 2, "bar");`
+  // => `SELECT * FROM table_name WHERE column1 BETWEEN 5 AND 8 AND column2 IN ('foo', 2, 'bar');`
 ```
 
 #### ORDER BY
@@ -35,7 +35,7 @@ select("*").from("table_name")
   .where("column1").equal("foo")
   .orderBy("colimn1")
   .build();
-  // => `SELECT * FROM table_name WHERE column1 = "foo" ORDER BY colimn1;`
+  // => `SELECT * FROM table_name WHERE column1 = 'foo' ORDER BY colimn1;`
 ```
 
 ### INSERT
@@ -45,7 +45,7 @@ insertInto("table_name")
   .keys("foo", "bar", "hoge")
   .values("foo", 2, "bar")
   .build();
-  // => `INSERT INTO table_name (foo, bar, hoge) VALUES("foo", 2, "bar");`
+  // => `INSERT INTO table_name (foo, bar, hoge) VALUES('foo', 2, 'bar');`
 ```
 
 ### CREATE TABLE

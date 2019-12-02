@@ -84,7 +84,7 @@ function inFactory(prefix) {
     };
 }
 function wrap(parameter) {
-    return typeof parameter === "number" ? "" + parameter : "\"" + parameter + "\"";
+    return typeof parameter === "number" ? "" + parameter : "'" + parameter + "'";
 }
 function betweenAndFactory(prefix) {
     return function (columnName) {
