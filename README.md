@@ -55,5 +55,5 @@ createTable("table_name")
   .column("column1").type("TEXT").notNull().primaryKey().unique()
   .column("column2").type("INTEGER").autoIncrement()
   .build();
-  // => `CREATE TABLE table_name ( column1 TEXT NOT NULL PRIMARY KEY UNIQUE, column2 INTEGER AUTOINCREMENT);`
+  // => `CREATE TABLE table_name ( column1 TEXT NOT NULL PRIMARY KEY UNIQUE, column2 INTEGER AUTO_INCREMENT);`
 ```
