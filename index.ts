@@ -85,7 +85,7 @@ function inFactory<T>(prefix: string) {
 }
 
 function wrap(parameter: number | string) {
-  return typeof parameter === "number" ? `${parameter}` : `'${parameter}'`;
+  return typeof parameter === "string" ? `'${parameter}'` : `${parameter}`;
 }
 
 function betweenAndFactory<T>(prefix: string) {
@@ -229,7 +229,7 @@ function notNullFactory<T>(prefix: string) {
   };
 }
 
-type DataType = "TEXT" | "INTEGER" | "BLOB";
+type DataType = "TEXT" | "INTEGER" | "BLOB" | "BOOLEAN";
 function typeFactory<T>(prefix: string) {
   return function(type: DataType) {
     const sql = `${prefix} ${type}`;
