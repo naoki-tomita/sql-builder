@@ -84,7 +84,7 @@ function inFactory<T>(prefix: string) {
   };
 }
 
-function wrap(parameter: number | string) {
+function wrap(parameter: number | string | boolean) {
   return typeof parameter === "string" ? `'${parameter}'` : `${parameter}`;
 }
 
@@ -159,7 +159,7 @@ export function select(...params: string[]) {
 }
 
 function valuesFactory(prefix: string) {
-  return function(...values: Array<string | number>) {
+  return function(...values: Array<string | number | boolean>) {
     const sql = `${prefix} VALUES(${values.map(wrap).join(", ")})`;
     return {
       build: buildFactory(sql),

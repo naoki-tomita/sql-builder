@@ -126,8 +126,8 @@
         "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
       },
       "./index.ts": {
-        "version": "1476578a9a36b25b17927653f3fde6eed446a5bbce925cb3cd9649e44686dfb3",
-        "signature": "dd313d0f2542db484707640147806078b846016987a628bf5e0187c52731a1fb"
+        "version": "198aada1268d1d372dd9fabb4d9266ae3a68451426ef1ff97a9693f0a7e08020",
+        "signature": "980c1f114c23048218ce11630f1fe57fb2c43dd834b26e43d8251d217efc1b95"
       },
       "./node_modules/@babel/types/lib/index.d.ts": {
         "version": "9831162ce5f45c26f22caf9436a7e0dd0295001a7ec0e628405dd41e870148f5",
