@@ -249,4 +249,28 @@ function createTable(tableName) {
     };
 }
 exports.createTable = createTable;
+function innerSetFactory(prefix) {
+    return function (key, value) {
+        value = wrap(value);
+        return {
+            and: innerSetFactory(prefix + ", " + key + " = " + value),
+            where: whereFactory(prefix + ", " + key + " = " + value),
+        };
+    };
+}
+function setFactory(prefix) {
+    return function (key, value) {
+        value = wrap(value);
+        return {
+            and: innerSetFactory(prefix + " SET " + key + " = " + value),
+            where: whereFactory(prefix + " SET " + key + " = " + value),
+        };
+    };
+}
+function update(tableName) {
+    return {
+        set: setFactory("UPDATE " + tableName)
+    };
+}
+exports.update = update;
 //# sourceMappingURL=index.js.map

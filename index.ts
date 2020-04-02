@@ -263,3 +263,29 @@ export function createTable<T>(tableName: string) {
     column: constructorFactory<T>(`CREATE TABLE ${tableName} (`)
   };
 }
+
+function innerSetFactory<T>(prefix: string) {
+  return function(key: string, value: string) {
+    value = wrap(value);
+    return {
+      and: innerSetFactory(`${prefix}, ${key} = ${value}`),
+      where: whereFactory<T>(`${prefix}, ${key} = ${value}`),
+    }
+  }
+}
+
+function setFactory<T>(prefix: string) {
+  return function(key: string, value: string) {
+    value = wrap(value);
+    return {
+      and: innerSetFactory(`${prefix} SET ${key} = ${value}`),
+      where: whereFactory<T>(`${prefix} SET ${key} = ${value}`),
+    }
+  }
+}
+
+export function update<T>(tableName: string) {
+  return {
+    set: setFactory<T>(`UPDATE ${tableName}`)
+  }
+}

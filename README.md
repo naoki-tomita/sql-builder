@@ -57,3 +57,13 @@ createTable("table_name")
   .build();
   // => `CREATE TABLE table_name ( column1 TEXT NOT NULL PRIMARY KEY UNIQUE, column2 INTEGER AUTO_INCREMENT);`
 ```
+
+### UPDATE
+
+```js
+update("table_name")
+  .set("column1", "value")
+  .where("column2").equal("value")
+  .build();
+  // => `UPDATE table_name SET column1 = 'value' WHERE column2 = 'value';`
+```

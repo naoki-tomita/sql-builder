@@ -172,5 +172,122 @@ export declare function createTable<T>(tableName: string): {
         };
     };
 };
+export declare function update<T>(tableName: string): {
+    set: (key: string, value: string) => {
+        and: (key: string, value: string) => {
+            and: any;
+            where: (columnName: never) => {
+                in: (...parameters: (string | number)[]) => {
+                    build: () => string;
+                    orderBy: (columnName: never) => {
+                        build: () => string;
+                    };
+                    and: (columnName: never) => any;
+                    or: (columnName: never) => any;
+                };
+                equal: (parameter: string | number) => {
+                    build: () => string;
+                    orderBy: (columnName: never) => {
+                        build: () => string;
+                    };
+                    and: (columnName: never) => any;
+                    or: (columnName: never) => any;
+                };
+                like: (parameter: string | number) => {
+                    build: () => string;
+                    orderBy: (columnName: never) => {
+                        build: () => string;
+                    };
+                    and: (columnName: never) => any;
+                    or: (columnName: never) => any;
+                };
+                notEqual: (parameter: string | number) => {
+                    build: () => string;
+                    orderBy: (columnName: never) => {
+                        build: () => string;
+                    };
+                    and: (columnName: never) => any;
+                    or: (columnName: never) => any;
+                };
+                between: (parameter: string | number) => {
+                    and: (columnName: string | number) => {
+                        and: (columnName: never) => any;
+                    };
+                };
+                isNull: () => {
+                    build: () => string;
+                    orderBy: (columnName: never) => {
+                        build: () => string;
+                    };
+                    and: (columnName: never) => any;
+                    or: (columnName: never) => any;
+                };
+                isNotNull: () => {
+                    and: (columnName: never) => any;
+                    or: (columnName: never) => any;
+                    orderBy: (columnName: never) => {
+                        build: () => string;
+                    };
+                    build: () => string;
+                };
+            };
+        };
+        where: (columnName: keyof T) => {
+            in: (...parameters: (string | number)[]) => {
+                build: () => string;
+                orderBy: (columnName: keyof T) => {
+                    build: () => string;
+                };
+                and: (columnName: keyof T) => any;
+                or: (columnName: keyof T) => any;
+            };
+            equal: (parameter: string | number) => {
+                build: () => string;
+                orderBy: (columnName: keyof T) => {
+                    build: () => string;
+                };
+                and: (columnName: keyof T) => any;
+                or: (columnName: keyof T) => any;
+            };
+            like: (parameter: string | number) => {
+                build: () => string;
+                orderBy: (columnName: keyof T) => {
+                    build: () => string;
+                };
+                and: (columnName: keyof T) => any;
+                or: (columnName: keyof T) => any;
+            };
+            notEqual: (parameter: string | number) => {
+                build: () => string;
+                orderBy: (columnName: keyof T) => {
+                    build: () => string;
+                };
+                and: (columnName: keyof T) => any;
+                or: (columnName: keyof T) => any;
+            };
+            between: (parameter: string | number) => {
+                and: (columnName: string | number) => {
+                    and: (columnName: keyof T) => any;
+                };
+            };
+            isNull: () => {
+                build: () => string;
+                orderBy: (columnName: keyof T) => {
+                    build: () => string;
+                };
+                and: (columnName: keyof T) => any;
+                or: (columnName: keyof T) => any;
+            };
+            isNotNull: () => {
+                and: (columnName: keyof T) => any;
+                or: (columnName: keyof T) => any;
+                orderBy: (columnName: keyof T) => {
+                    build: () => string;
+                };
+                build: () => string;
+            };
+        };
+    };
+};
 export {};
 //# sourceMappingURL=index.d.ts.map
