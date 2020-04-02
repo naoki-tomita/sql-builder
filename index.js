@@ -252,18 +252,22 @@ exports.createTable = createTable;
 function innerSetFactory(prefix) {
     return function (key, value) {
         value = wrap(value);
+        var q = prefix + ", " + key + " = " + value;
         return {
-            and: innerSetFactory(prefix + ", " + key + " = " + value),
-            where: whereFactory(prefix + ", " + key + " = " + value),
+            and: innerSetFactory(q),
+            where: whereFactory(q),
+            build: buildFactory(q)
         };
     };
 }
 function setFactory(prefix) {
     return function (key, value) {
         value = wrap(value);
+        var q = prefix + " SET " + key + " = " + value;
         return {
-            and: innerSetFactory(prefix + " SET " + key + " = " + value),
-            where: whereFactory(prefix + " SET " + key + " = " + value),
+            and: innerSetFactory(q),
+            where: whereFactory(q),
+            build: buildFactory(q)
         };
     };
 }

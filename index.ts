@@ -267,9 +267,11 @@ export function createTable<T>(tableName: string) {
 function innerSetFactory<T>(prefix: string) {
   return function(key: keyof T, value: number | string | boolean) {
     value = wrap(value);
+    const q = `${prefix}, ${key} = ${value}`;
     return {
-      and: innerSetFactory<T>(`${prefix}, ${key} = ${value}`),
-      where: whereFactory<T>(`${prefix}, ${key} = ${value}`),
+      and: innerSetFactory<T>(q),
+      where: whereFactory<T>(q),
+      build: buildFactory(q)
     }
   }
 }
@@ -277,9 +279,11 @@ function innerSetFactory<T>(prefix: string) {
 function setFactory<T>(prefix: string) {
   return function(key: keyof T, value: number | string | boolean) {
     value = wrap(value);
+    const q = `${prefix} SET ${key} = ${value}`;
     return {
-      and: innerSetFactory<T>(`${prefix} SET ${key} = ${value}`),
-      where: whereFactory<T>(`${prefix} SET ${key} = ${value}`),
+      and: innerSetFactory<T>(q),
+      where: whereFactory<T>(q),
+      build: buildFactory(q)
     }
   }
 }

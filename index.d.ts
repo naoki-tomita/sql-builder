@@ -231,6 +231,7 @@ export declare function update<T>(tableName: string): {
                     build: () => string;
                 };
             };
+            build: () => string;
         };
         where: (columnName: keyof T) => {
             in: (...parameters: (string | number)[]) => {
@@ -287,6 +288,7 @@ export declare function update<T>(tableName: string): {
                 build: () => string;
             };
         };
+        build: () => string;
     };
 };
 export {};
