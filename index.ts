@@ -265,20 +265,20 @@ export function createTable<T>(tableName: string) {
 }
 
 function innerSetFactory<T>(prefix: string) {
-  return function(key: string, value: string) {
+  return function(key: keyof T, value: number | string | boolean) {
     value = wrap(value);
     return {
-      and: innerSetFactory(`${prefix}, ${key} = ${value}`),
+      and: innerSetFactory<T>(`${prefix}, ${key} = ${value}`),
       where: whereFactory<T>(`${prefix}, ${key} = ${value}`),
     }
   }
 }
 
 function setFactory<T>(prefix: string) {
-  return function(key: string, value: string) {
+  return function(key: keyof T, value: number | string | boolean) {
     value = wrap(value);
     return {
-      and: innerSetFactory(`${prefix} SET ${key} = ${value}`),
+      and: innerSetFactory<T>(`${prefix} SET ${key} = ${value}`),
       where: whereFactory<T>(`${prefix} SET ${key} = ${value}`),
     }
   }
