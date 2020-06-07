@@ -112,8 +112,10 @@ function betweenFactory<T>(prefix: string) {
 
 function createCompareFactory(compareMethod: string) {
   return function<T>(prefix: string) {
-    return function(parameter: number | string) {
-      const sql = `${prefix} ${compareMethod} ${wrap(parameter)}`;
+    return function(parameter: number | string | null) {
+      const sql = parameter == null
+        ? `${prefix} IS ${compareMethod === "=" ? "" : "NOT"} NULL`
+        : `${prefix} ${compareMethod} ${wrap(parameter)}`;
       return {
         ...connectable<T>(sql),
         orderBy: orderByFactory<T>(sql),
@@ -190,6 +192,7 @@ export function insertInto<T>(tableName: string) {
 function nextable<T>(sql: string) {
   return {
     autoIncrement: autoIncrementFactory<T>(sql),
+    autoincrement: autoincrementFactory<T>(sql),
     primaryKey: primaryKeyFactory<T>(sql),
     notNull: notNullFactory<T>(sql),
     unique: uniqueFactory<T>(sql),
@@ -215,6 +218,13 @@ function serialFactory<T>(prefix: string) {
 function autoIncrementFactory<T>(prefix: string) {
   return function() {
     const sql = `${prefix} AUTO_INCREMENT`;
+    return nextable<T>(sql);
+  };
+}
+
+function autoincrementFactory<T>(prefix: string) {
+  return function() {
+    const sql = `${prefix} AUTOINCREMENT`;
     return nextable<T>(sql);
   };
 }

@@ -108,7 +108,9 @@ function betweenFactory(prefix) {
 function createCompareFactory(compareMethod) {
     return function (prefix) {
         return function (parameter) {
-            var sql = prefix + " " + compareMethod + " " + wrap(parameter);
+            var sql = parameter == null
+                ? prefix + " IS " + (compareMethod === "=" ? "" : "NOT") + " NULL"
+                : prefix + " " + compareMethod + " " + wrap(parameter);
             return __assign(__assign(__assign({}, connectable(sql)), { orderBy: orderByFactory(sql) }), executable(sql));
         };
     };
@@ -186,6 +188,7 @@ exports.insertInto = insertInto;
 function nextable(sql) {
     return {
         autoIncrement: autoIncrementFactory(sql),
+        autoincrement: autoincrementFactory(sql),
         primaryKey: primaryKeyFactory(sql),
         notNull: notNullFactory(sql),
         unique: uniqueFactory(sql),
@@ -208,6 +211,12 @@ function serialFactory(prefix) {
 function autoIncrementFactory(prefix) {
     return function () {
         var sql = prefix + " AUTO_INCREMENT";
+        return nextable(sql);
+    };
+}
+function autoincrementFactory(prefix) {
+    return function () {
+        var sql = prefix + " AUTOINCREMENT";
         return nextable(sql);
     };
 }
