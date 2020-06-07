@@ -88,7 +88,10 @@ function inFactory<T>(prefix: string) {
   };
 }
 
-function wrap(parameter: number | string | boolean) {
+function wrap(parameter: number | string | boolean | null) {
+  if (parameter == null) {
+    return "NULL";
+  }
   return typeof parameter === "string" ? `'${escapeString(parameter)}'` : `${parameter}`;
 }
 
@@ -165,7 +168,7 @@ export function select(...params: string[]) {
 }
 
 function valuesFactory(prefix: string) {
-  return function(...values: Array<string | number | boolean>) {
+  return function(...values: Array<string | number | boolean | null>) {
     const sql = `${prefix} VALUES(${values.map(wrap).join(", ")})`;
     return {
       build: buildFactory(sql),
