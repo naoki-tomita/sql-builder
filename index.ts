@@ -88,7 +88,7 @@ function inFactory<T>(prefix: string) {
   };
 }
 
-function wrap(parameter: number | string | boolean | null) {
+function wrap(parameter: number | string | boolean | null | undefined) {
   if (parameter == null) {
     return "NULL";
   }
@@ -168,7 +168,7 @@ export function select(...params: string[]) {
 }
 
 function valuesFactory(prefix: string) {
-  return function(...values: Array<string | number | boolean | null>) {
+  return function(...values: Array<string | number | boolean | null | undefined>) {
     const sql = `${prefix} VALUES(${values.map(wrap).join(", ")})`;
     return {
       build: buildFactory(sql),
