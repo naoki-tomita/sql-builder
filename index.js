@@ -11,6 +11,9 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+function escapeString(string) {
+    return string.replace(/'/g, "''");
+}
 function buildFactory(sql) {
     return function () {
         return sql + ";";
@@ -84,7 +87,7 @@ function inFactory(prefix) {
     };
 }
 function wrap(parameter) {
-    return typeof parameter === "string" ? "'" + parameter + "'" : "" + parameter;
+    return typeof parameter === "string" ? "'" + escapeString(parameter) + "'" : "" + parameter;
 }
 function betweenAndFactory(prefix) {
     return function (columnName) {
