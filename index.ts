@@ -115,7 +115,7 @@ function betweenFactory<T>(prefix: string) {
 
 function createCompareFactory(compareMethod: string) {
   return function<T>(prefix: string) {
-    return function(parameter: number | string | null) {
+    return function(parameter: number | string | null | undefined) {
       const sql = parameter == null
         ? `${prefix} IS ${compareMethod === "=" ? "" : "NOT"} NULL`
         : `${prefix} ${compareMethod} ${wrap(parameter)}`;

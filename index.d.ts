@@ -10,7 +10,7 @@ export declare function select(...params: string[]): {
                 and: (columnName: keyof T) => any;
                 or: (columnName: keyof T) => any;
             };
-            equal: (parameter: string | number | null) => {
+            equal: (parameter: string | number | null | undefined) => {
                 build: () => string;
                 orderBy: (columnName: keyof T) => {
                     build: () => string;
@@ -18,7 +18,7 @@ export declare function select(...params: string[]): {
                 and: (columnName: keyof T) => any;
                 or: (columnName: keyof T) => any;
             };
-            like: (parameter: string | number | null) => {
+            like: (parameter: string | number | null | undefined) => {
                 build: () => string;
                 orderBy: (columnName: keyof T) => {
                     build: () => string;
@@ -26,7 +26,7 @@ export declare function select(...params: string[]): {
                 and: (columnName: keyof T) => any;
                 or: (columnName: keyof T) => any;
             };
-            notEqual: (parameter: string | number | null) => {
+            notEqual: (parameter: string | number | null | undefined) => {
                 build: () => string;
                 orderBy: (columnName: keyof T) => {
                     build: () => string;
@@ -72,7 +72,7 @@ export declare function select(...params: string[]): {
                     and: (columnName: keyof T) => any;
                     or: (columnName: keyof T) => any;
                 };
-                equal: (parameter: string | number | null) => {
+                equal: (parameter: string | number | null | undefined) => {
                     build: () => string;
                     orderBy: (columnName: keyof T) => {
                         build: () => string;
@@ -80,7 +80,7 @@ export declare function select(...params: string[]): {
                     and: (columnName: keyof T) => any;
                     or: (columnName: keyof T) => any;
                 };
-                like: (parameter: string | number | null) => {
+                like: (parameter: string | number | null | undefined) => {
                     build: () => string;
                     orderBy: (columnName: keyof T) => {
                         build: () => string;
@@ -88,7 +88,7 @@ export declare function select(...params: string[]): {
                     and: (columnName: keyof T) => any;
                     or: (columnName: keyof T) => any;
                 };
-                notEqual: (parameter: string | number | null) => {
+                notEqual: (parameter: string | number | null | undefined) => {
                     build: () => string;
                     orderBy: (columnName: keyof T) => {
                         build: () => string;
@@ -189,7 +189,7 @@ export declare function update<T>(tableName: string): {
                     and: (columnName: keyof T) => any;
                     or: (columnName: keyof T) => any;
                 };
-                equal: (parameter: string | number | null) => {
+                equal: (parameter: string | number | null | undefined) => {
                     build: () => string;
                     orderBy: (columnName: keyof T) => {
                         build: () => string;
@@ -197,7 +197,7 @@ export declare function update<T>(tableName: string): {
                     and: (columnName: keyof T) => any;
                     or: (columnName: keyof T) => any;
                 };
-                like: (parameter: string | number | null) => {
+                like: (parameter: string | number | null | undefined) => {
                     build: () => string;
                     orderBy: (columnName: keyof T) => {
                         build: () => string;
@@ -205,7 +205,7 @@ export declare function update<T>(tableName: string): {
                     and: (columnName: keyof T) => any;
                     or: (columnName: keyof T) => any;
                 };
-                notEqual: (parameter: string | number | null) => {
+                notEqual: (parameter: string | number | null | undefined) => {
                     build: () => string;
                     orderBy: (columnName: keyof T) => {
                         build: () => string;
@@ -246,7 +246,7 @@ export declare function update<T>(tableName: string): {
                 and: (columnName: keyof T) => any;
                 or: (columnName: keyof T) => any;
             };
-            equal: (parameter: string | number | null) => {
+            equal: (parameter: string | number | null | undefined) => {
                 build: () => string;
                 orderBy: (columnName: keyof T) => {
                     build: () => string;
@@ -254,7 +254,7 @@ export declare function update<T>(tableName: string): {
                 and: (columnName: keyof T) => any;
                 or: (columnName: keyof T) => any;
             };
-            like: (parameter: string | number | null) => {
+            like: (parameter: string | number | null | undefined) => {
                 build: () => string;
                 orderBy: (columnName: keyof T) => {
                     build: () => string;
@@ -262,7 +262,7 @@ export declare function update<T>(tableName: string): {
                 and: (columnName: keyof T) => any;
                 or: (columnName: keyof T) => any;
             };
-            notEqual: (parameter: string | number | null) => {
+            notEqual: (parameter: string | number | null | undefined) => {
                 build: () => string;
                 orderBy: (columnName: keyof T) => {
                     build: () => string;
