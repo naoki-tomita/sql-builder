@@ -126,7 +126,7 @@ export declare function select(...params: string[]): {
 };
 export declare function insertInto<T>(tableName: string): {
     keys: (...keys: (keyof T)[]) => {
-        values: (...values: (string | number | boolean)[]) => {
+        values: (...values: (string | number | boolean | null)[]) => {
             build: () => string;
         };
     };

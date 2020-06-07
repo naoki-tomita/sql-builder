@@ -87,6 +87,9 @@ function inFactory(prefix) {
     };
 }
 function wrap(parameter) {
+    if (parameter == null) {
+        return "NULL";
+    }
     return typeof parameter === "string" ? "'" + escapeString(parameter) + "'" : "" + parameter;
 }
 function betweenAndFactory(prefix) {
