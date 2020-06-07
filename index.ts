@@ -1,3 +1,7 @@
+function escapeString(string: string) {
+  return string.replace(/'/g, "''")
+}
+
 function buildFactory(sql: string) {
   return function() {
     return `${sql};`;
@@ -85,7 +89,7 @@ function inFactory<T>(prefix: string) {
 }
 
 function wrap(parameter: number | string | boolean) {
-  return typeof parameter === "string" ? `'${parameter}'` : `${parameter}`;
+  return typeof parameter === "string" ? `'${escapeString(parameter)}'` : `${parameter}`;
 }
 
 function betweenAndFactory<T>(prefix: string) {
